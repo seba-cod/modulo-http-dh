@@ -4,46 +4,77 @@
     padding: 0px;
     font-size: 16px;
 }
-.main-header {
-    max-width: 1200px;
-    padding: 20px;
-    margin: auto;
-}
+/* reglas generales  */
 body {
     width: 100%;
     background-color: #EAC926;
     font-family: "Roboto", sans-serif;
     margin: 0;
 }
+/* Seteo los tamaños de letra */
+.headline{
+    font-size: 24px; 
+    text-align: center;
+}
+.body-text { font-size: 12px; }
+
+.precios { 
+    display: flex;
+    font-size: 18px;
+    flex-grow: 0.3;
+    font-weight: 700;
+}
+
+.desc { 
+    display: flex;
+    font-size: 16px;
+    color: #39b54a; 
+    flex-grow: 0.7;
+    font-weight: 300;
+ }
+ 
+.descripcion { 
+    font-size: 16px; 
+    color: #666666;
+    font-weight: 400;
+}
+
+/* trabajo sobre el header */
+.main-header {
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
+    border: violet 2px solid;
+}
+/* logo barra de busqueda y copy  */
+.logo-search {
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    display: inline-block;
+    width: 100px;
+}
+
+.copy-header{
+    font-weight: 400;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+/* navegacion interna */
 .burger-menu{
     display: block;
     background-color:#1259c3;
     color: #ffffff;
-    
     max-width: 3rem;
     padding: 1rem;
     border-radius: 0.5rem;
     text-align: center;
     font-size: 1rem;
     margin:auto;
-}
-.logo {
-    display: inline-block;
-    width: 100px;
-}
-.logo-search {
-    max-width: 500px;
-    display: flex;
-    justify-items: stretch;
-}
-
-.search-bar{
-    max-width: 100px;
-}
-.copy-header{
-    font-weight: 400;
-    text-align: center;
-    margin-right: 1rem;
 }
 .container-nav{
     display:none;
@@ -64,8 +95,6 @@ body {
     text-align: left;
     margin-left: 0px;
 }
-
-
 
 /* Empiezo a trabajar en el main */
 main {
@@ -107,7 +136,7 @@ main section article .product-info{
     padding-bottom: 15px;
     padding-top: 15px;
 }
-.icon-shipment{
+/* .icon-shipment{
     display: block;
     font-size: 16px;
     padding: 5px;
@@ -119,7 +148,7 @@ main section article .product-info{
     position: relative;
     right: -85%;
     top: 15px;
-}
+} */
 
 
 /* Trabajo sobre el footer */
@@ -145,34 +174,6 @@ footer {
     max-width: 100%;
 }
 
-/* Seteo los tamaños de letra */
-.headline{
-    font-size: 24px; 
-    text-align: center;
-}
-
-.body-text { font-size: 12px; }
-
-.precios { 
-    display: flex;
-    font-size: 18px;
-    flex-grow: 0.3;
-    font-weight: 700;
-}
-
-.desc { 
-    display: flex;
-    font-size: 16px;
-    color: #39b54a; 
-    flex-grow: 0.7;
-    font-weight: 300;
- }
- 
-.descripcion { 
-    font-size: 16px; 
-    color: #666666;
-    font-weight: 400;
-}
 
 /* Register.html */
 
@@ -237,7 +238,13 @@ input[type="radio"], input[type="checkbox"]{
 }
 
 /* Trabajos sobre los media queries, mobile first */
-@media (min-width: 361px){
+/* Se intentó dejar fijo el botón de busqueda limitando el recuadro de busqueda, sin éxito, solo funciona desde el html usando la prop style="width..."
+@media (min-width: 0px max-width: 355px){
+    .search-field{
+        width: 50px;
+    }
+} */
+@media (min-width: 555px){
     .copy-header{
         max-width: 180px;
         text-align: right;
@@ -245,10 +252,10 @@ input[type="radio"], input[type="checkbox"]{
     .main-header-top-bar{
         display: flex;
         justify-content: space-between;
-        /* border: blue 3px solid; */
-
     }
 }
+
+
 
 @media (min-width: 768px){
     .logo{
