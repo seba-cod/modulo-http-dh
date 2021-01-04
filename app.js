@@ -6,7 +6,7 @@ const publicPath = path.join(__dirname, './public');
 
 app.use(express.static(publicPath));
 
-app.listen(process.env.PORT || 3000, () => { 
+app.listen(process.env.PORT || 3000, function() { 
     console.log("=====================");
     console.log("http://localhost:3000");
     console.log("=====================");
