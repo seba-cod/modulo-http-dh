@@ -46,22 +46,70 @@ main{
     display: none;
 }
 
+header div div i.hand{
+    font-size: 10px;
+}
+
 /* trabajo sobre el header */
 .main-header {
     max-width: 1200px;
     padding: 20px;
     margin: auto;
 }
-/* logo barra de busqueda y copy  */
-.logo-search {
-    max-width: 500px;
+.main-header-top-bar{
+    display:block;
+}
+/* logo, barra de busqueda y copy  */
+div.logo-search {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .logo {
     display: inline-block;
-    width: 100px;
+    width: 80px;
 }
+
+body header div div form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+}
+
+.search-field{
+    border: none;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    margin-right: 0px;
+    margin-left: 10px;
+}
+input[type="text"].search-field::placeholder{
+    font-size: 10px;
+    padding-left: 4px;
+    color: #333;
+}
+
+input:focus{outline: none; background-color: none;}
+/*Solo le puedo decir al input del campo de busqueda que tome estas propiedades mediante esta gramatica*/
+input[type="text"]{
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #222;
+}
+
+.search-button{
+    width: 2.2rem;
+    background-color: white;
+    border: 1px solid #fff;
+    border-left: 0.8px solid rgb(216, 213, 213);
+    margin-left: 0px;
+    border-radius: 0 5px 5px 0;
+    padding: 4px 0px;
+}
+
 .copy-header{
     font-weight: 400;
     text-align: center;
@@ -72,12 +120,13 @@ main{
     display: block;
     background-color:#1259c3;
     color: #ffffff;
-    max-width: 3rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    max-width: 2.5rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin:auto;
+    margin-top: 10px;
 }
 .container-nav{
     display:none;
@@ -175,13 +224,23 @@ main section article:hover i{
     color: #1259c3;
     transition: all 450ms;
 }
-footer {
+footer{
+    background-color: #fff;
+}
+footer div.main-footer {
     max-width: 1200px;
     display: block;
-    background-color: #fff;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 15px;
+}
+footer div.main-footer section div{
+    padding-top: 10px;
+}
+footer div.main-footer section p {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .footer-headline{ 
     color: #333;
@@ -273,14 +332,7 @@ main.login-form div {
 
 
 
-}
 /* Trabajos sobre los media queries, mobile first */
-/* Se intentó dejar fijo el botón de busqueda limitando el recuadro de busqueda, sin éxito, solo funciona desde el html usando la prop style="width..."
-@media (min-width: 0px max-width: 355px){
-    .search-field{
-        width: 50px;
-    }
-} */
 
 @media (min-width: 361px){
     
@@ -311,18 +363,67 @@ main.login-form div {
     .main-header-top-bar{
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     main div.buttons-on-reg button {
         width: 220px;
+    }
+    .burger-menu{
+        display: block;
+        background-color:#1259c3;
+        color: #ffffff;
+        max-width: 3rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        font-size: 1rem;
+        margin:auto;
+        margin-top: 15px;
+    }
+    header div div.logo-search{
+        width: 70%;
+        justify-content: flex-start;
+    }
+    body header div div form{
+        width: 75%;
     }
 }
 
 
 
 @media (min-width: 768px){
-    .logo{
-        width: 150px;
+    .container-nav { margin-top: 1rem; }
+    body header div div form{
+        width: 70%;
     }
+    header div div.logo-search{
+    justify-content: space-between;
+    }
+    .logo{
+        width: 100px;
+        margin-left: 15px;
+    }
+    .search-field{
+        width: 150%;
+        border: none;
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        margin-right: 0px;
+    }
+    .search-field::placeholder{
+        font-size: 14px;
+        padding-left: 4px;    
+    }
+    .search-button{
+            width: 4rem;
+            background-color: white;
+            border: 1px solid #fff;
+            border-left: 0.8px solid rgb(216, 213, 213);
+            margin-left: 0px;
+            border-radius: 0 8px 8px 0;
+            padding: 10px 0px;
+    }
+    
     .burger-menu{
         display: none;
     }
@@ -347,42 +448,57 @@ main.login-form div {
     }
 }
 
+
+
 @media (min-width: 1200px) {
 
+    .logo{ margin-left: 0px; }
     .main-header, main {
         max-width: 1200px;
         margin: auto;
-        }
-    .main-header-top-bar{
-        align-items: center;
     }
-    .logo{
-        width: 220px;
-    }
-    .copy-header{
+    .copy-header{ 
         max-width: none;
         margin: 0px;
     }
-    .container-nav{
-        margin-top: 1.5rem;
-    }
-    .container-nav li{
-        margin: 0 0.8rem;
-    }
-    footer {
+    .container-nav{ margin-top: 1.5rem; }
+    .container-nav li{ margin: 0 0.8rem; }
+    footer div.main-footer {
         padding: 25px 0px;
         max-width: 1200px;
         display: flex;
     }
-    footer section div {
+    footer div.main-footer section div {
         display: inline-block;
         max-width: 30%;
         margin: auto;
     }
-    footer p {
-        padding: 10px 0px;
+    footer div.main-footer p { padding: 10px 0px; }
+    body main form { width: 900px; }
+
+    header div.main-header-top-bar{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
     }
-    body main form {
-        width: 900px;
+    header div.main-header-top-bar div .logo-search{
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+    }
+    header div.main-header-top-bar div .logo{
+        display: inline-block;
+        width: 120px;
+    }
+    header div.main-header-top-bar form{
+        width: 80%;
+    }
+    header div.main-header-top-bar div.copy-header{
+        width: 25%;
     }
 }
+
+
+
+
+
