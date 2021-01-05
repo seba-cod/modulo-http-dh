@@ -93,7 +93,8 @@ input[type="text"].search-field::placeholder{
 
 input:focus{outline: none; background-color: none;}
 /*Solo le puedo decir al input del campo de busqueda que tome estas propiedades mediante esta gramatica*/
-input[type="text"]{
+/* Aprovecho la situación e ingreso los inputs del register y del login */
+input[type="text"], input[type="email"], input[type="date"], input[type="file"], input[type="password"]{
     width: 100%;
     font-size: 10px;
     letter-spacing: 1px;
@@ -109,7 +110,6 @@ input[type="text"]{
     border-radius: 0 5px 5px 0;
     padding: 4px 0px;
 }
-
 .copy-header{
     font-weight: 400;
     text-align: center;
@@ -199,8 +199,6 @@ main section article i {
     top: -15px;
     transition: all 0.5s;
 }
-
-
 /* agrego las transiciones */
 main section div article:hover {
     box-shadow: 0 0 10px;
@@ -213,7 +211,6 @@ main section div article:hover .descripcion {
 main section article:hover i{
     transform: rotate(-0.25turn);
 }
-
 .icon-footer:hover{
     color: #f7fa5e
 }
@@ -246,100 +243,98 @@ footer div.main-footer section p {
     color: #333;
     font-weight: bold; 
 }
-.search { 
-    display: inline-block;
-    max-width: 100%;
-}
-
-
-/* Register.html */
+/* Register.html y Login.html*/
 
 body main form{
     display: block;
     margin: auto;
+    border: none;
     padding: 15px 25px;
-    background-color: white;
-    border: #666 1px solid;
-    border-radius: 5px;
 }
-
-form div, form label{
-    font-size: 14px;
-}
-
-
-.input-on-reg{
-    padding: 6px;
-    border: #666 1px solid;
-    display: block;
-    border-radius: 2px;
+body main form input, body main form input.input-on-log{
     width: 100%;
-    margin: 10px 0px;
-    
+    padding: 20px;
+    margin: 10px 0px 24px 0px;
+    background-color: #fff;
+    border: none;
 }
-
+/* Exclusivos de register.html */
+body main form div.select-opt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 22px;
+}
+form input[type=checkbox], input[type=radio] {
+    height: 15px;
+    width: 20px;
+    margin-top: 25px;
+    margin-right: 5px;
+    margin-bottom: 25px;
+    background-color: #fff;
+    vertical-align: baseline;
+}
+body main form div.radio-box, body main form div.checkbox-box{
+    display: block;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+body main form div label[for="date-of-birth"], label[for="profile"], label[for="categorie"]{
+    font-size: 18px;
+}
+body main form div.checkbox-box label[for="checkbox"], label[for="radio"]{
+    vertical-align: center;
+    font-size: 9px;
+}
 
 .danger-button{
     display:block;
     margin: 15px 0px;
-    padding: 2px 5px;
+    padding: 10px 5px;
     border-radius: 2px;
+    border: none;
     width: 100%;
     background-color: #f18203;
     transition: all 450ms;
 }
-
 .danger-button:hover{
     background-color: #f31000;
 }
 
 .buttons-on-reg{
     display: flex;
-    justify-content: space-around;
-
+    justify-content: space-between;
     margin: auto;
 }
-main div.buttons-on-reg button {
-    width: 150px;
+/* Actua como login y como enviar register */
+.login-button{
+    display:block;
+    margin: 15px 0px;
+    padding: 10px 5px;
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    background-color: #9ed3ff;
+    transition: all 450ms;
+}
+.login-button:hover{
+        background-color: #f7fa5e;
 }
 
 /* Login.html */
-
-main.login-form div {
-    padding: 10px;
-    margin:auto;
-    width: 90%;
-}
 .input-on-log{
     width: 100%;
     padding: 2px 5px;
     margin: 15px 0px;
 }
 
-.login-button{
-    display:block;
-    margin: 15px 0px;
-    padding: 2px 5px;
-    border-radius: 2px;
-    width: 100%;
-    background-color: #9ed3ff;
-    transition: all 450ms;
-}
-
-.login-button:hover{
-        background-color: #f7fa5e;
-}
-
-
-
 /* Trabajos sobre los media queries, mobile first */
 
 @media (min-width: 361px){
-    
     main section article .description{
         display: block;
     }
-
     .precios,
     .desc{
         width: 50%;
@@ -350,6 +345,9 @@ main.login-form div {
 }
 
 @media (min-width: 555px){
+    body main form div.checkbox-box label[for="checkbox"], label[for="radio"]{
+        font-size: 16px;
+    }
     main section div.products article{
         width: 40%;
     }
@@ -366,7 +364,7 @@ main.login-form div {
         align-items: center;
     }
     main div.buttons-on-reg button {
-        width: 220px;
+        width: 45%;
     }
     .burger-menu{
         display: block;
@@ -444,7 +442,7 @@ main.login-form div {
         width: 768px;
     }
     main div.buttons-on-reg button {
-        width: 300px;
+        width: 45%;
     }
 }
 
